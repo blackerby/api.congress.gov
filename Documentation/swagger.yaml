@@ -7056,6 +7056,19 @@ components:
           - sconres
           - hres
           - sres
-
+    amendmentType:
+      name: amendmentType
+      in: path
+      description: The type of amendment. Value can be hamdt or samdt.
+      required: true
+      schema:
+        type: string
+    amendmentNumber:
+      name: amendmentNumber
+      in: path
+      description: "The bill's assigned number. For example, the value can be 287."
+      required: true
+      schema:
+        type: integer
 x-original-swagger-version: "2.0"
 

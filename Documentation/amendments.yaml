@@ -42,32 +42,11 @@ paths:
              }
       operationId: Amendment
       parameters:
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      - name: fromDateTime
-        in: query
-        description: "The starting timestamp to filter by update date. Use format:\
-          \ YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: toDateTime
-        in: query
-        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
+      - $ref: './swagger.yaml#/components/parameters/fromDateTime'
+      - $ref: './swagger.yaml#/components/parameters/toDateTime'
       responses:
         "200":
           description: Successful operation
@@ -121,38 +100,12 @@ paths:
              }
       operationId: Amendmentcongress
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      - name: fromDateTime
-        in: query
-        description: "The starting timestamp to filter by update date. Use format:\
-          \ YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: toDateTime
-        in: query
-        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
+      - $ref: './swagger.yaml#/components/parameters/fromDateTime'
+      - $ref: './swagger.yaml#/components/parameters/toDateTime'
       responses:
         "200":
           description: Successful operation
@@ -206,44 +159,13 @@ paths:
              }
       operationId: Amendmentlist
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: amendmentType
-        in: path
-        description: "The type of amendment. Value can be hamdt, samdt, or suamdt."
-        required: true
-        schema:
-          type: string
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      - name: fromDateTime
-        in: query
-        description: "The starting timestamp to filter by update date. Use format:\
-          \ YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: toDateTime
-        in: query
-        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
+      - $ref: './swagger.yaml#/components/parameters/fromDateTime'
+      - $ref: './swagger.yaml#/components/parameters/toDateTime'
       responses:
         "200":
           description: Successful operation
@@ -316,30 +238,10 @@ paths:
             }
       operationId: Amendmentdetails
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: amendmentType
-        in: path
-        description: "The type of amendment. Value can be hamdt, samdt, or suamdt."
-        required: true
-        schema:
-          type: string
-      - name: amendmentNumber
-        in: path
-        description: "The amendment's assigned number. For example, the value can\
-          \ be 2137."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: './swagger.yaml#/components/parameters/format'
       responses:
         "200":
           description: Successful operation
@@ -407,40 +309,12 @@ paths:
             }
       operationId: Amendmentactions
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: amendmentType
-        in: path
-        description: "The type of amendment. Value can be hamdt, samdt, or suamdt."
-        required: true
-        schema:
-          type: string
-      - name: amendmentNumber
-        in: path
-        description: "The amendment's assigned number. For example, the value can\
-          \ be 2137."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
       responses:
         "200":
           description: Successful operation
@@ -491,40 +365,12 @@ paths:
             }
       operationId: Amendmentcosponsors
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: amendmentType
-        in: path
-        description: "The type of amendment. Value can be hamdt, samdt, or suamdt."
-        required: true
-        schema:
-          type: string
-      - name: amendmentNumber
-        in: path
-        description: "The amendment's assigned number. For example, the value can\
-          \ be 2137."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
       responses:
         "200":
           description: Successful operation
@@ -572,40 +418,12 @@ paths:
             }
       operationId: Amendmentamendments
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: amendmentType
-        in: path
-        description: "The type of amendment. Value can be hamdt, samdt, or suamdt."
-        required: true
-        schema:
-          type: string
-      - name: amendmentNumber
-        in: path
-        description: "The amendment's assigned number. For example, the value can\
-          \ be 2137."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
       responses:
         "200":
           description: Successful operation
@@ -650,40 +468,12 @@ paths:
              }
       operationId: amendmentsText
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. This is endpoint is for the 117th Congress\
-          \ and onwards. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: amendmentType
-        in: path
-        description: The type of amendment. Value can be hamdt or samdt.
-        required: true
-        schema:
-          type: string
-      - name: amendmentNumber
-        in: path
-        description: "The bill's assigned number. For example, the value can be 287."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
       responses:
         "200":
           description: Successful operation
