@@ -7056,6 +7056,13 @@ components:
           - sconres
           - hres
           - sres
+    billNumber:
+      name: "billNumber"
+      in: path
+      description: The bill's assigned number. For example, the value can be 3076.
+      required: true
+      schema:
+        type: integer
     amendmentType:
       name: amendmentType
       in: path
@@ -7066,7 +7073,7 @@ components:
     amendmentNumber:
       name: amendmentNumber
       in: path
-      description: "The bill's assigned number. For example, the value can be 287."
+      description: The bill's assigned number. For example, the value can be 287.
       required: true
       schema:
         type: integer
