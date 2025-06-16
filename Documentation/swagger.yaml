@@ -156,27 +156,10 @@ paths:
             }
       operationId: law_list_by_congress
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
+      - $ref: '#/components/parameters/congress'
+      - $ref: '#/components/parameters/format'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/limit'
       responses:
         "200":
           description: Successful operation
@@ -7006,5 +6989,73 @@ components:
       type: apiKey
       name: api_key
       in: query
+  parameters:
+    congress:
+      name: congress
+      in: path
+      description: "The congress number. For example, the value can be 117."
+      required: true
+      schema:
+        type: integer
+    format:
+      name: format
+      in: query
+      description: The data format.
+      schema:
+        type: string
+        enum:
+          - xml
+          - json
+    offset:
+      name: offset
+      in: query
+      description: The starting record returned. 0 is the first record.
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      description: The number of records returned. The maximum limit is 250.
+      schema:
+        type: integer
+    fromDateTime:
+      name: fromDateTime
+      in: query
+      description: "The starting timestamp to filter by update date. Use format:\
+        \ YYYY-MM-DDT00:00:00Z."
+      schema:
+        type: string
+    toDateTime:
+       name: toDateTime
+       in: query
+       description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
+       schema:
+         type: string
+    sort:
+      name: sort
+      in: query
+      description: Sort by update date in Congress.gov.
+      schema:
+        type: string
+        enum:
+          - updateDate+asc
+          - updateDate+desc
+    billType:
+      name: billType
+      in: path
+      description: "The type of bill."
+      required: true
+      schema:
+        type: string
+        enum:
+          - hr
+          - s
+          - hjres
+          - sjres
+          - hconres
+          - sconres
+          - hres
+          - sres
+
 x-original-swagger-version: "2.0"
 

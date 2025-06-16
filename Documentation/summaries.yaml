@@ -59,38 +59,12 @@ paths:
             }
       operationId: bill_summaries_all
       parameters:
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      - name: fromDateTime
-        in: query
-        description: "The starting timestamp to filter by update date. Use format:\
-          \ YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: toDateTime
-        in: query
-        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: Sort by update date in Congress.gov. Value can be updateDate+asc
-          or updateDate+desc.
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
+      - $ref: './swagger.yaml#/components/parameters/fromDateTime'
+      - $ref: './swagger.yaml#/components/parameters/toDateTime'
+      - $ref: './swagger.yaml#/components/parameters/sort'
       responses:
         "200":
           description: Successful operation
@@ -161,44 +135,13 @@ paths:
             }
       operationId: bill_summaries_by_congress
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      - name: fromDateTime
-        in: query
-        description: "The starting timestamp to filter by update date. Use format:\
-          \ YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: toDateTime
-        in: query
-        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: Sort by update date in Congress.gov. Value can be updateDate+asc
-          or updateDate+desc.
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
+      - $ref: './swagger.yaml#/components/parameters/fromDateTime'
+      - $ref: './swagger.yaml#/components/parameters/toDateTime'
+      - $ref: './swagger.yaml#/components/parameters/sort'
       responses:
         "200":
           description: Successful operation
@@ -269,51 +212,11 @@ paths:
             }
       operationId: bill_summaries_by_type
       parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: billType
-        in: path
-        description: "The type of bill. Value can be hr, s, hjres, sjres, hconres,\
-          \ sconres, hres, or sres."
-        required: true
-        schema:
-          type: string
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      - name: fromDateTime
-        in: query
-        description: "The starting timestamp to filter by update date. Use format:\
-          \ YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: toDateTime
-        in: query
-        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
-        schema:
-          type: string
-      - name: sort
-        in: query
-        description: Sort by update date in Congress.gov. Value can be updateDate+asc
-          or updateDate+desc.
-        schema:
-          type: string
+      - $ref: './swagger.yaml#/components/parameters/congress'
+      - $ref: './swagger.yaml#/components/parameters/format'
+      - $ref: './swagger.yaml#/components/parameters/offset'
+      - $ref: './swagger.yaml#/components/parameters/limit'
+      - $ref: './swagger.yaml#/components/parameters/billType'
       responses:
         "200":
           description: Successful operation
