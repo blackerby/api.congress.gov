@@ -138,7 +138,7 @@ paths:
       operationId: law_list_by_congress_and_lawType
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/lawType'
+      - $ref: '#/components/parameters/lawType'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -269,8 +269,8 @@ paths:
       operationId: law_list_by_congress_lawType_and_lawNumber
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/lawType'
-      - $ref: './swagger.yaml#/components/parameters/lawNumber'
+      - $ref: '#/components/parameters/lawType'
+      - $ref: '#/components/parameters/lawNumber'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -283,3 +283,22 @@ paths:
           content: {}
       security:
       - api_key: []
+components:
+  parameters:
+    lawType:
+      name: lawType
+      in: path
+      description: The law type either 'pub' or 'priv'.
+      required: true
+      schema:
+        type: string
+        enum:
+          - pub
+          - priv
+    lawNumber:
+      name: lawNumber
+      in: path
+      description: The law number.
+      required: true
+      schema:
+        type: integer

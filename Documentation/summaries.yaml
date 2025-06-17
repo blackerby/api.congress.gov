@@ -216,7 +216,7 @@ paths:
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
-      - $ref: './swagger.yaml#/components/parameters/billType'
+      - $ref: './bill.yaml#/components/parameters/billType'
       responses:
         "200":
           description: Successful operation

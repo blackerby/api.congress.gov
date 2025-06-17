@@ -160,7 +160,7 @@ paths:
       operationId: Amendmentlist
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/amendmentType'
+      - $ref: '#/components/parameters/amendmentType'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -239,8 +239,8 @@ paths:
       operationId: Amendmentdetails
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/amendmentType'
-      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: '#/components/parameters/amendmentType'
+      - $ref: '#/components/parameters/amendmentNumber'
       - $ref: './swagger.yaml#/components/parameters/format'
       responses:
         "200":
@@ -310,8 +310,8 @@ paths:
       operationId: Amendmentactions
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/amendmentType'
-      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: '#/components/parameters/amendmentType'
+      - $ref: '#/components/parameters/amendmentNumber'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -366,8 +366,8 @@ paths:
       operationId: Amendmentcosponsors
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/amendmentType'
-      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: '#/components/parameters/amendmentType'
+      - $ref: '#/components/parameters/amendmentNumber'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -419,8 +419,8 @@ paths:
       operationId: Amendmentamendments
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/amendmentType'
-      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: '#/components/parameters/amendmentType'
+      - $ref: '#/components/parameters/amendmentNumber'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -469,8 +469,8 @@ paths:
       operationId: amendmentsText
       parameters:
       - $ref: './swagger.yaml#/components/parameters/congress'
-      - $ref: './swagger.yaml#/components/parameters/amendmentType'
-      - $ref: './swagger.yaml#/components/parameters/amendmentNumber'
+      - $ref: '#/components/parameters/amendmentType'
+      - $ref: '#/components/parameters/amendmentNumber'
       - $ref: './swagger.yaml#/components/parameters/format'
       - $ref: './swagger.yaml#/components/parameters/offset'
       - $ref: './swagger.yaml#/components/parameters/limit'
@@ -483,3 +483,20 @@ paths:
           content: {}
       security:
       - api_key: []
+components:
+  parameters:
+    amendmentType:
+      name: amendmentType
+      in: path
+      description: The type of amendment. Value can be hamdt or samdt.
+      required: true
+      schema:
+        type: string
+    amendmentNumber:
+      name: amendmentNumber
+      in: path
+      description: The bill's assigned number. For example, the value can be 287.
+      required: true
+      schema:
+        type: integer
+
