@@ -101,273 +101,11 @@ paths:
   /law/{congress}/{lawType}/{lawNumber}:
     $ref: './law.yaml#/paths/number'
   /congress:
-    get:
-      tags:
-      - congress
-      summary: Returns a list of congresses and congressional sessions.
-      description: |
-        GET /congress
-
-        **Example Request**
-
-        https://api.congress.gov/v3/congress?api_ke[INSERT_KEY]
-
-        **Example Response**
-
-            {
-                 "congresses": [
-                    {
-                        "endYear": "2022",
-                        "name": "117th Congress",
-                        "sessions": [
-                            {
-                                "chamber": "House of Representatives",
-                                "endDate": "2022-01-03",
-                                "number": 1,
-                                "startDate": "2021-01-03",
-                                "type": "R"
-                            },
-                            {
-                                "chamber": "Senate",
-                                "endDate": "2022-01-03",
-                                "number": 1,
-                                "startDate": "2021-01-03",
-                                "type": "R"
-                            },
-                            {
-                                "chamber": "House of Representatives",
-                                "endDate": null,
-                                "number": 2,
-                                "startDate": "2022-01-03",
-                                "type": "R"
-                            },
-                            {
-                                "chamber": "Senate",
-                                "endDate": null,
-                                "number": 2,
-                                "startDate": "2022-01-03",
-                                "type": "R"
-                            }
-                        ],
-                        "startYear": "2021"
-                    },
-                    {
-                        "endYear": "2020",
-                        "name": "116th Congress",
-                        "sessions": [
-                            {
-                                "chamber": "House of Representatives",
-                                "endDate": "2020-01-03",
-                                "number": 1,
-                                "startDate": "2019-01-03",
-                                "type": "R"
-                            },
-                            {
-                                "chamber": "Senate",
-                                "endDate": "2020-01-03",
-                                "number": 1,
-                                "startDate": "2019-01-03",
-                                "type": "R"
-                            },
-                            {
-                                "chamber": "House of Representatives",
-                                "endDate": "2021-01-03",
-                                "number": 2,
-                                "startDate": "2020-01-03",
-                                "type": "R"
-                            },
-                            {
-                                "chamber": "Senate",
-                                "endDate": "2021-01-03",
-                                "number": 2,
-                                "startDate": "2020-01-03",
-                                "type": "R"
-                            }
-                        ],
-                        "startYear": "2019"
-                    },
-                ],
-            }
-      operationId: congress_list
-      parameters:
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      responses:
-        "200":
-          description: Successful operation
-          content: {}
-        "400":
-          description: Invalid status value
-          content: {}
-      security:
-      - api_key: []
+    $ref: './congress.yaml#/paths/congresses'
   /congress/{congress}:
-    get:
-      tags:
-      - congress
-      summary: Returns detailed information for a specified congress.
-      description: |
-        GET /congress/:congress
-
-        **Example Request**
-
-        https://api.congress.gov/v3/congress/116?api_key=[INSERT_KEY]
-
-        **Example Response**
-
-            {
-              "congress": {
-                  "endYear": "2020",
-                  "name": "116th Congress",
-                  "number": 116,
-                  "sessions": [
-                      {
-                          "chamber": "House of Representatives",
-                          "endDate": "2020-01-03",
-                          "number": 1,
-                          "startDate": "2019-01-03",
-                          "type": "R"
-                      },
-                      {
-                          "chamber": "Senate",
-                          "endDate": "2020-01-03",
-                          "number": 1,
-                          "startDate": "2019-01-03",
-                          "type": "R"
-                      },
-                      {
-                          "chamber": "House of Representatives",
-                          "endDate": "2021-01-03",
-                          "number": 2,
-                          "startDate": "2020-01-03",
-                          "type": "R"
-                      },
-                      {
-                          "chamber": "Senate",
-                          "endDate": "2021-01-03",
-                          "number": 2,
-                          "startDate": "2020-01-03",
-                          "type": "R"
-                      }
-                  ],
-                  "startYear": "2019",
-                  "updateDate": "2019-01-03T18:37:12Z",
-                  "url": "https://api.congress.gov/v3/congress/116?format=json"
-              },
-            }
-      operationId: congress_details
-      parameters:
-      - name: congress
-        in: path
-        description: "The congress number. For example, the value can be 117."
-        required: true
-        schema:
-          type: integer
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Successful operation
-          content: {}
-        "400":
-          description: Invalid status value
-          content: {}
-      security:
-      - api_key: []
+    $ref: './congress.yaml#/paths/id'
   /congress/current:
-    get:
-      tags:
-      - congress
-      summary: Returns detailed information for the current congress.
-      description: |
-        GET /congress/current
-
-        **Example Request**
-
-        https://api.congress.gov/v3/congress/current?api_key=[INSERT_KEY]
-
-        **Example Response**
-
-            {
-              "congress": {
-                  "endYear": "2024",
-                  "name": "118th Congress",
-                  "number": 118,
-                  "sessions": [
-                      {
-                          "chamber": "House of Representatives",
-                          "endDate": "2024-01-03",
-                          "number": 1,
-                          "startDate": "2023-01-03",
-                          "type": "R"
-                      },
-                      {
-                           "chamber": "Senate",
-                           "endDate": "2024-01-03",
-                           "number": 1,
-                           "startDate": "2023-01-03",
-                           "type": "R"
-                      },
-                      {
-                           "chamber": "Senate",
-                           "number": 2,
-                           "startDate": "2024-01-03",
-                           "type": "R"
-                      },
-                      {
-                           "chamber": "House of Representatives",
-                           "number": 2,
-                           "startDate": "2024-01-03",
-                           "type": "R"
-                      }
-                  ],
-                  "startYear": "2023",
-                  "updateDate": "2023-01-03T17:43:32Z",
-                  "url": "https://api.congress.gov/v3/congress/current?format=json"
-              },
-            }
-      operationId: congress_current_list
-      parameters:
-      - name: format
-        in: query
-        description: The data format. Value can be xml or json.
-        schema:
-          type: string
-      - name: offset
-        in: query
-        description: The starting record returned. 0 is the first record.
-        schema:
-          type: integer
-      - name: limit
-        in: query
-        description: The number of records returned. The maximum limit is 250.
-        schema:
-          type: integer
-      responses:
-        "200":
-          description: Successful operation
-          content: {}
-        "400":
-          description: Invalid status value
-          content: {}
-      security:
-      - api_key: []
+    $ref: './congress.yaml#/paths/current'
   /member:
     get:
       tags:
@@ -6669,6 +6407,8 @@ components:
       required: true
       schema:
         type: integer
+        minimum: 1
+        maximum: 119
     format:
       name: format
       in: query
@@ -6684,25 +6424,28 @@ components:
       description: The starting record returned. 0 is the first record.
       schema:
         type: integer
+        minimum: 0
     limit:
       name: limit
       in: query
       description: The number of records returned. The maximum limit is 250.
       schema:
         type: integer
+        maximum: 250
     fromDateTime:
       name: fromDateTime
       in: query
-      description: "The starting timestamp to filter by update date. Use format:\
-        \ YYYY-MM-DDT00:00:00Z."
+      description: "The starting timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
       schema:
         type: string
+        format: date-time
     toDateTime:
        name: toDateTime
        in: query
        description: "The ending timestamp to filter by update date. Use format: YYYY-MM-DDT00:00:00Z."
        schema:
          type: string
+         format: date-time
     sort:
       name: sort
       in: query
