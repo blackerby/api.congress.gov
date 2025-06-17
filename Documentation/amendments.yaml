@@ -262,7 +262,13 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/amendmentDetail'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/amendmentDetail'
         "400":
           description: Invalid status value
           content: {}
@@ -523,10 +529,7 @@ components:
         congress:
           type: string
         type:
-          type: string
-          enum:
-          - SAMDT
-          - HAMDT
+          $ref: '#/components/schemas/amendmentType'
         number:
           type: string
         purpose:
@@ -542,3 +545,86 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/amendment'
+    amendmentDetail:
+      type: object
+      properties:
+        actions:
+          $ref: '#/components/schemas/count'
+        amendedBill:
+          type: object
+          properties:
+            congress:
+              $ref: './swagger.yaml#/components/schemas/congress'
+            number:
+              type: string
+            originChamber:
+              $ref: './swagger.yaml#/components/schemas/chamber'
+            originChamberCode:
+              $ref: './swagger.yaml#/components/schemas/chamberCode'
+            title:
+              type: string
+            type:
+              $ref: './bill.yaml#/components/schemas/billType'
+            url:
+              type: string
+        amendmentsToAmendment:
+          $ref: '#/components/schemas/count'
+        chamber:
+          $ref: './swagger.yaml#/components/schemas/chamber'
+        congress:
+          $ref: './swagger.yaml#/components/schemas/congress'
+        cosponsors:
+          type: object
+          properties:
+            count:
+              type: integer
+            countIncludingWithdrawnCosponsors:
+              type: integer
+            url:
+              type: string
+        latestAction:
+          $ref: './swagger.yaml#/components/schemas/latestAction'
+        number:
+          type: string
+        proposedDate:
+          type: string
+          format: date-time
+        purpose:
+          type: string
+        sponsors:
+          type: array
+          items:
+            type: object
+            properties:
+              bioguideId:
+                type: string
+                pattern: '^[A-Z]\d{6}$'
+              firstName:
+                type: string
+              fullName:
+                type: string
+              lastName:
+                type: string
+              url:
+                type: string
+        submittedDate:
+          type: string
+          format: date-time
+        type:
+          $ref: '#/components/schemas/amendmentType'
+        updatedDate:
+          type: string
+          format: date-time
+    amendmentType:
+      type: string
+      enum:
+      - SAMDT
+      - HAMDT
+    count:
+      type: object
+      properties:
+        count:
+          type: integer
+        url:
+          type: string
+

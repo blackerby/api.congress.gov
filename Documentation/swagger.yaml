@@ -6465,6 +6465,20 @@ components:
         text:
           type: string
       nullable: true
+    congress:
+      type: integer
+      minimum: 1
+      maximum: 119
+    chamber:
+      type: string
+      enum:
+      - House
+      - Senate
+    chamberCode:
+      type: string
+      enum:
+      - H
+      - S
 
 x-original-swagger-version: "2.0"
 

@@ -886,3 +886,15 @@ components:
       required: true
       schema:
         type: integer
+  schemas:
+    billType:
+      type: string
+      enum:
+        - HR
+        - S
+        - HJRES
+        - SJRES
+        - HCONRES
+        - SCONRES
+        - HRES
+        - SRES
