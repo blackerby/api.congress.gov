@@ -50,7 +50,13 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/amendments'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/amendments'
         "400":
           description: Invalid status value
           content: {}
@@ -109,7 +115,13 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/amendments'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/amendments'
         "400":
           description: Invalid status value
           content: {}
@@ -169,7 +181,13 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/amendments'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/amendments'
         "400":
           description: Invalid status value
           content: {}
@@ -499,4 +517,36 @@ components:
       required: true
       schema:
         type: integer
-
+  schemas:
+    amendment:
+      type: object
+      properties:
+        congress:
+          type: string
+        type:
+          type: string
+          enum:
+          - SAMDT
+          - HAMDT
+        number:
+          type: string
+        purpose:
+          type: string
+        url:
+          type: string
+        latestAction:
+          type: object
+          properties:
+            actionDate:
+              type: string
+              format: date
+            text:
+              type: string
+          nullable: true
+    amendments:
+      type: object
+      properties:
+        amendments:
+          type: array
+          items:
+            $ref: '#/components/schemas/amendment'
