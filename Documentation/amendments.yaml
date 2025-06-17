@@ -66,8 +66,7 @@ paths:
     get:
       tags:
       - amendments
-      summary: "Returns a list of amendments filtered by the specified congress, sorted\
-        \ by date of latest action."
+      summary: "Returns a list of amendments filtered by the specified congress, sorted by date of latest action."
       description: |
         GET /amendment/:congress
 
@@ -535,14 +534,7 @@ components:
         url:
           type: string
         latestAction:
-          type: object
-          properties:
-            actionDate:
-              type: string
-              format: date
-            text:
-              type: string
-          nullable: true
+          $ref: './swagger.yaml#/components/schemas/latestAction'
     amendments:
       type: object
       properties:

@@ -6455,6 +6455,16 @@ components:
         enum:
           - updateDate+asc
           - updateDate+desc
+  schemas:
+    latestAction:
+      type: object
+      properties:
+        actionDate:
+          type: string
+          format: date
+        text:
+          type: string
+      nullable: true
 
 x-original-swagger-version: "2.0"
 
