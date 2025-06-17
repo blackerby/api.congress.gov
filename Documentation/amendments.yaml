@@ -274,6 +274,7 @@ paths:
           content: {}
       security:
       - api_key: []
+  # TODO: schema for actions by amendment endpoint
   actions:
     get:
       tags:
