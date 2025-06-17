@@ -103,7 +103,7 @@ paths:
   /congress:
     $ref: './congress.yaml#/paths/congresses'
   /congress/{congress}:
-    $ref: './congress.yaml#/paths/id'
+    $ref: './congress.yaml#/paths/congress'
   /congress/current:
     $ref: './congress.yaml#/paths/current'
   /member:

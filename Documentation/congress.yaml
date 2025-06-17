@@ -98,51 +98,16 @@ paths:
           content:
             application/json:
                 schema:
-                  type: object
-                  properties:
-                    congresses:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          name:
-                            type: string
-                          startYear:
-                            type: string
-                          endYear:
-                            type: string
-                          sessions:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                chamber:
-                                  type: string
-                                  enum:
-                                  - Senate
-                                  - House of Representatives
-                                number:
-                                  type: integer
-                                  minimum: 1
-                                  maximum: 2
-                                type:
-                                  type: string
-                                  enum:
-                                  - R
-                                  - S
-                                startDate:
-                                  type: string
-                                  format: date
-                                endDate:
-                                  type: string
-                                  format: date
-                                  nullable: true
+                  $ref: '#/components/schemas/congresses'
+            application/xml:
+                schema:
+                  $ref: '#/components/schemas/congresses'
         "400":
           description: Invalid status value
           content: {}
       security:
       - api_key: []
-  id:
+  congress:
     get:
       tags:
       - congress
@@ -203,7 +168,13 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/congress'
+            application/xml:
+              schema: 
+                $ref: '#/components/schemas/congress'
         "400":
           description: Invalid status value
           content: {}
@@ -269,9 +240,61 @@ paths:
       responses:
         "200":
           description: Successful operation
-          content: {}
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/congress'
+            application/xml:
+              schema: 
+                $ref: '#/components/schemas/congress'
         "400":
           description: Invalid status value
           content: {}
       security:
       - api_key: []
+components:
+    schemas:
+        congresses: 
+          type: object
+          properties:
+            congresses:
+              type: array
+              items:
+                $ref: '#/components/schemas/congress'
+        congress:
+          type: object
+          properties:
+            name:
+              type: string
+            startYear:
+              type: string
+            endYear:
+              type: string
+            sessions:
+              type: array
+              items:
+                $ref: '#/components/schemas/session'
+        session:
+          type: object
+          properties:
+            chamber:
+              type: string
+              enum:
+              - Senate
+              - House of Representatives
+            number:
+              type: integer
+              minimum: 1
+              maximum: 2
+            type:
+              type: string
+              enum:
+              - R
+              - S
+            startDate:
+              type: string
+              format: date
+            endDate:
+              type: string
+              format: date
+              nullable: true
